@@ -198,7 +198,7 @@ const shopData=
           },
           {
             id: 4,
-                title: 'Womens',
+                title: 'All',
                 routeName: 'womens',
                 items: [
                   {

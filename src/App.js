@@ -4,6 +4,7 @@ import { Route,Routes, useParams, Link} from 'react-router-dom';
 import './App.css';
 import Shop from './pages/shop/shop';
 import Header from './components/header/header';
+import Sign from './pages/sign/sign';
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
        <Routes>
        <Route  path='/' element={<HomePage/>}/>
        <Route  path='/shop' element={<Shop/>}/>
+       <Route path='/sign' element={<Sign/>}/>
        </Routes>
 
     </div>
