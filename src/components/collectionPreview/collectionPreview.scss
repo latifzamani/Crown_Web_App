@@ -1,0 +1,14 @@
+.collection-preview{
+    display: flex;
+    flex-direction: column;
+     margin-bottom: 30px;
+    .preview{
+       display: flex;
+       justify-content: space-between;
+    }
+   .title{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+}
