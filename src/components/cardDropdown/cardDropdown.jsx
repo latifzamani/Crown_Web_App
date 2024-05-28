@@ -1,23 +1,33 @@
 import React from "react";
 import './cardDropdown.scss';
 import CardItem from "../cardItem/cardItem";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import CustomButton from "../customButton/customButton";
-
-const CardDropdown=({cardItems})=>(
+import { selectCardItems } from "../../Redux/card/card.selectors";
+import { toggleCardHidden } from "../../Redux/card/card.actions";
+import { UseDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+const CardDropdown=({cardItems})=>{
+  const dispatch=useDispatch();
+  const navigate=useNavigate();
+  return(
       <div className="card-dropdown">
         <div className="card-items">
           {
-            cardItems.map(cardItem=>(
+            cardItems.length ?
+            (cardItems.map(cardItem=>(
               <CardItem key={cardItem.id} item={cardItem} />
-            ))
+            ))) 
+            :
+            (<span className="emptyCard">Your card is empty</span>)
           }
         </div>
-        <CustomButton>Item Check</CustomButton>
+        <CustomButton onClick={()=>{navigate('/checkout');dispatch(toggleCardHidden())}}>Item Check</CustomButton>
       </div>
 );
+};
 
-const mapStateToProps=({card:{cardItems}})=>({
-  cardItems
+const mapStateToProps=(state)=>({
+  cardItems:selectCardItems(state)
 })
 export default connect(mapStateToProps)(CardDropdown);

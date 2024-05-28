@@ -6,6 +6,9 @@ import { connect } from "react-redux";
 import { ReactComponent as Logo} from "../../assets/crown.svg";
 import CardIcon from "../cardIcon/cardIcon";
 import CardDropdown from "../cardDropdown/cardDropdown";
+import { createStructuredSelector } from "reselect";
+import { selectCardHidden} from "../../Redux/user/user.selectors";
+import { selectCurrentUser } from "../../Redux/user/user.selectors";
 // import {ReactComponent}
 const Header=({currentUser,hidden})=>(
     <div className="header">

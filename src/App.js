@@ -1,5 +1,6 @@
 import React from 'react';
 import HomePage from '../src/pages/homePage';
+import CheckOut from './pages/checkout/checkout';
 import { Route,Routes, useParams, Link,Navigate} from 'react-router-dom';
 import './App.css';
 import Shop from './pages/shop/shop'; 
@@ -52,6 +53,7 @@ class App extends React.Component{
        <Route  path='/' element={<HomePage/>}/>
        <Route  path='/shop' element={<Shop/>}/>
        <Route  path='/sign' element={(this.props.currentUser) ? (<Navigate  to='/' replace/>) : (<Sign/>) }/>
+       <Route path='/checkout' element={<CheckOut/>} />
        </Routes>
 
     </div>
