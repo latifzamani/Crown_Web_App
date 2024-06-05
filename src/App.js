@@ -9,6 +9,7 @@ import Sign from './pages/sign/sign';
 import { auth,createUserProfileDocument } from './firebase/firebase.utils';
 import {connect} from 'react-redux';
 import {SetCurrentUser} from './Redux/user/user.actions';
+import CollectionPage from './components/collection/collection';
 class App extends React.Component{
   constructor(){
     super();
@@ -52,6 +53,7 @@ class App extends React.Component{
        <Routes>
        <Route  path='/' element={<HomePage/>}/>
        <Route  path='/shop' element={<Shop/>}/>
+       <Route  path='/shop/:category' element={<CollectionPage/>}/>
        <Route  path='/sign' element={(this.props.currentUser) ? (<Navigate  to='/' replace/>) : (<Sign/>) }/>
        <Route path='/checkout' element={<CheckOut/>} />
        </Routes>
